@@ -1,0 +1,234 @@
+html{
+	height: 100%;
+	width: 100%;
+}
+body{
+	margin: 0;
+	padding: 0;
+	background-color: rgb(211, 242, 191);
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	color: rgb(0,45,3);
+}
+header{
+	color: white;
+	background-image: url("SmallClouds.png");
+	background-attachment: fixed;
+	overflow: visible;
+	width:559%;
+	height: 80px;
+	margin: 0px;
+	font-size: 200%;
+	font-family: georgia;
+	padding-bottom: 10px;
+}
+footer{
+	text-align: center;
+	height: 10%;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: rgb(0,0,0);
+}
+h1{
+	padding:0;
+	margin:0;
+	border:0;
+	text-align: center;
+	position: fixed;
+	left:0;
+	right: 0;
+}
+h2{
+	font-family: courier;
+	text-align: center;
+}
+h3{
+	font-size: 150%;
+	margin: 0;
+	padding: 0;
+	padding-top: 10px;
+	padding-left: 10px;
+	font-family: Helvetica;
+}
+p{
+	padding-left: 10px;
+	padding-top: 10px;
+	margin: 0;
+}
+ul{
+	list-style-image: none;
+	margin: 0;
+	padding-top: 40px;
+}
+li{
+	display: inline;
+	width: 60px;
+	padding-left:45px;
+	padding-right:45px;
+}
+div{
+	width: 90%;
+	height: 550px;
+	display: inline-block;
+}
+a{
+	text-decoration: none;
+	margin-left: -4px;
+}
+form{
+	text-align: center;
+}
+.center{
+	text-align:center;
+	display: block;
+	margin: 0 auto;
+}
+img.center{
+	width: 188px;
+	height: 250px;
+	border: 2px solid black;
+}
+.modal, .dModal, .pModal{
+    display: none !important;
+	position: fixed;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+    z-index: 1; 
+    width: 100%;
+    overflow: hidden;
+	background-color: rgba(0,0,0,0.4);
+	height:100vh;
+	text-align: center;
+}
+.modalContent{
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+    background-color: rgb(249, 248, 237);
+    height: 95%;
+	border: 5px solid black !important;
+	border-radius: 15px;
+	text-align: center;
+	padding: 20px;
+}
+.modalDocument{
+	width: 800px;
+	height: 96%;
+	overflow: auto;
+	margin-left: auto;
+	margin-right: auto;
+    background-color: rgb(249, 248, 237);
+	border: 5px solid black;
+	border-radius: 15px;
+	text-align: left;
+}
+.modalPhoto{
+	width: 800px;
+	height: 500px;
+	overflow: auto;
+	margin-left: auto;
+	margin-right: auto;
+    background-color: rgb(249, 248, 237);
+	border: 5px solid black;
+	border-radius: 15px;
+	text-align: center;
+}
+.buttonGroup{
+	text-align: center;
+	border: none !important;
+	height: 80%;
+}
+.picLaunch{
+	border: 1px solid black;
+	width: 160px;
+	height: 100px;
+	cursor: pointer;
+}
+.picLaunch:hover {
+	-webkit-filter: grayscale;
+	-webkit-filter: brightness(50%); 
+}
+.projectButton{
+	height: 100px;
+	width: 220px;
+	border: 2px solid white;
+	border-radius: 10px;
+	background-color: rgb(153,217,234);
+	font-size: 15px;
+	font-family: Helvetica;
+	font-weight: bold;
+	color: white;
+	margin-bottom: 15px;
+}
+.projectButton:hover{
+	color: rgb(153,217,234);
+	background-color: white;
+	border: 2px solid rgb(153,217,234);
+}
+.projectButton:focus{
+	border: 2px solid rgb(153,217,234);
+}
+.docButton{
+	border: 1px solid black;
+	width: 160px;
+	height: 100px;
+	vertical-align: top;
+}
+.docButton:hover {
+	-webkit-filter: grayscale;
+	-webkit-filter: brightness(50%); 
+}
+.iconButton{
+	background-color: rgb(224,184,219);
+	border: 2px solid white;
+	border-radius: 10px;
+	color: white;
+	display: inline-block;
+	font-size: 16px;
+	text-decoration: none;
+	text-align: center;
+	padding: 10px;
+	width: 160px;
+	height: 100px;
+	transition-duration: 0.2s;
+	-webkit-transition-duration:0.2s;
+	cursor: pointer;
+	outline: none;
+}
+.iconButton:hover{
+	background-color: white;
+	color: rgb(224,184,219);
+	outline: none;
+}
+.iconButton:focus{
+	border: 2px solid rgb(153,217,234);
+	outline: none;
+	outline: 0;
+}
+.fancy{
+	font-family: Snell Roundhand, Brush Script Std, Edwardian Script ITC, Georgia;
+}
+.seperate {
+	background-image: url("midnight.png");
+	background-repeat: repeat-x;
+	background-attachment: fixed;
+	width: 10%;
+}
+.container{
+	white-space: nowrap;
+}
+.container div{
+	white-space: normal;
+	padding: 10px;
+	padding-top: 0;
+	padding-left: 0;	
+	vertical-align: top;
+	border-bottom: 3px solid black;
+	border: 1px solid black;
+}
+.icon-HackerRankIcon:before {
+  content: "\e900";
+}
+
