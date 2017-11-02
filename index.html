@@ -7,6 +7,8 @@
 		<meta name="author" content="Amanda Joy Panell">	
 		<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href ="icomoon/style.css">-->
+		
+		<link rel="stylesheet" href ="stylesOld.css">
 		<link rel="stylesheet" href ="styles.css">
 		<link rel="icon" href="foxIconSmall.png">
 	</head>
@@ -46,9 +48,1571 @@
 		--><div class="seperate"></div><!--
 		--><div id="projects">
 			<h2>Projects</h2>
-			<p>
-				A lot of CSS involved in this one, I'll wait until the next assignment...
-			</p>
+			<div class="buttonGroup">
+			<button class="projectButton">
+				foxKeeper<br>
+				Java
+			</button>
+			<div id="modalProject" class="modal">
+				<div class="modalContent">
+					<p style="text-align: left;">
+						<strong>Project title: </strong><br> foxKeeper File Interface System<br><br>
+						<strong>Project status: </strong><br> Ongoing. Currently working on version 2.0<br><br>
+						<strong>Project Description: </strong><br> Program that seperates files into categories and provides an interface for users to access them.<br><br>
+						<strong>Languages: </strong><br> Java<br><br>
+						<strong>Software: </strong><br> IntelliJ IDEA<br><br>
+						<strong>Demo: </strong><br> Coming soon!! Take a look at some screenshots and code snippets in the meantime :)<br><br>
+					</p>
+					<p>	
+						<div class="buttonGroup">
+							<button class="picLaunch" style="background:url('foxKeeperMainScreen.png')">
+							</button>
+							<div class="pModal">
+								<div class="modalPhoto">
+									<p>
+										<img src="foxKeeperMainScreen.png" style="width:100%;"><br>
+										<strong>Main menu</strong>
+									</p>	
+								</div>
+							</div>
+							<button class="picLaunch" style="background:url('foxKeeperSetUp.png')">
+							</button><!--
+						 --><div class="pModal">
+								<div class="modalPhoto">
+									<p>
+										<img src="foxKeeperSetUp.png" style="width:100%;"><br>
+										<strong>Set up menu</strong>
+									</p>	
+								</div>
+							</div><br>
+							<button class="docLaunch docButton">
+								<i class="fa fa-file-code-o" style="font-size:40px";></i><br><br>
+								<strong>Code snippet</strong>
+							</button>
+							<div class="dModal">
+								<div class="modalDocument">
+									<p>
+										<pre>
+											<code>
+	/*Code for menu bar*/
+
+	menuBar = new JMenuBar(); //Menu bar
+
+        //"Home" Button
+        char tinyHouseIcon = 0x2302; //Hexadecimal unicode value for tiny house icon
+        String tinyHouse = String.valueOf(tinyHouseIcon); //Tiny house as a string
+        homeButton = new JButton(tinyHouse);
+		
+        homeButton.setBackground(Color.lightGray);
+        menuBar.add(homeButton);
+        menuBar.setLayout(new FlowLayout(FlowLayout.LEFT)); //Set layout and align to the left (default is center)
+        menuBar.setPreferredSize(new Dimension(30,30));
+        homeButton.addActionListener(handle);
+        homeButton.setBorderPainted(false); //Get rid of selection border
+        homeButton.setFocusPainted(false); //Get rid of selection box
+        homeButton.setOpaque(false); //Make the button match the rest of the JMenu
+
+        //"File" menu
+        fileMenu = new JMenu("File");
+        menuBar.add(fileMenu);
+
+        newMenu = new JMenu("New");
+        fileMenu.add(newMenu);
+        newMenu.addActionListener(handle);
+		
+        newTxt = new JMenuItem("New Text File");
+        newMenu.add(newTxt);
+        newTxt.addActionListener(handle);
+
+        newPDF = new JMenuItem("New PDF");
+        newMenu.add(newPDF);
+        newPDF.addActionListener(handle);
+
+        openFile = new JMenuItem("Open");
+        fileMenu.add(openFile);
+        openFile.addActionListener(handle);
+
+        fileMenu.addSeparator();
+
+        settingsEdit = new JMenuItem("File settings");
+        fileMenu.add(settingsEdit);
+        settingsEdit.addActionListener(handle);
+
+        //"Settings" menu
+        settingsMenu = new JMenu("Settings");
+        menuBar.add(settingsMenu);
+
+        fullScreen = new JMenuItem("Full screen on/off");
+        settingsMenu.add(fullScreen);
+        fullScreen.addActionListener(handle);
+
+        //"About" menu
+        aboutMenu = new JMenu("About");
+        menuBar.add(aboutMenu);
+
+        about = new JMenuItem("About");
+        aboutMenu.add(about);
+        about.addActionListener(handle);
+
+        //"Help" menu
+        helpMenu = new JMenu("Help");
+        menuBar.add(helpMenu);
+
+        contact = new JMenuItem("Contact");
+        helpMenu.add(contact);
+        contact.addActionListener(handle);
+
+        help = new JMenuItem("Help");
+        helpMenu.add(help);
+        help.addActionListener(handle);
+
+        //"Exit" menu
+        exitMenu = new JMenu("Exit");
+        menuBar.add(exitMenu);
+
+        exit = new JMenuItem("Exit");
+        exitMenu.add(exit);
+        exit.addActionListener(handle);
+											</code>
+										</pre>
+									</p>	
+								</div>
+							</div>
+							<button class="docLaunch docButton">
+								<i class="fa fa-file-code-o" style="font-size:40px";></i><br><br>
+								<strong>Code snippet</strong>
+							</button>
+							<div class="dModal">
+								<div class="modalDocument">
+									<p>
+										<pre>
+											<code>
+	//Set banner
+        imageLabel = new ImageIcon(settings.getBannerImage());
+        item2 = new JLabel(imageLabel);
+        c.gridx = 1;
+        mainPanel.add(item2,c);
+
+        settings.setCategories();
+
+        JButton[][] categoryFile = new JButton[settings.category.length][100];
+
+       //Create category menus
+        for(int i = 0; i < settings.category.length; i++){ //For every category
+            JPanel tempPanel = new JPanel(); //Create panel to hold buttons
+            categoryLists[i] = new JPanel();
+            categoryLists[i].setLayout(new BorderLayout());
+            categoryLists[i] = tempPanel;
+            categoryLists[i].setBackground(Color.white);
+            JTextArea titleOfCatMenu = new JTextArea(settings.getMenu()[i]);
+            titleOfCatMenu.setEditable(false);
+            titleOfCatMenu.setPreferredSize(new Dimension(1000,15));
+
+            categoryLists[i].add(titleOfCatMenu,BorderLayout.NORTH);
+
+            for(int j = 0; j < settings.category[i].myFiles.size(); j++){ //For every file, create a button
+
+                String filePath = settings.category[i].myFiles.get(j).toString();
+                String fileName = new File(settings.category[i].myFiles.get(j).toString()).getName(); //Get name from the file path by casting the String filePath as a File object
+                String[] fileElements = fileName.split(settings.delimeter); //Get the names for the columns
+                JButton tempButton = new JButton(fileElements[2]); //Create new button with file name as label
+
+                categoryFile[i][j] = tempButton; //Real button gets the temp button
+                categoryFile[i][j].setBackground(Color.white); //Set button color to white
+                categoryFile[i][j].setForeground(Color.black); //Set text color to black
+                categoryFile[i][j].setHorizontalAlignment(SwingConstants.LEFT);
+                categoryFile[i][j].setOpaque(true);
+                categoryFile[i][j].setFocusable(false);
+                categoryFile[i][j].setBorderPainted(false);
+                categoryFile[i][j].setVerticalAlignment(SwingConstants.TOP);
+                categoryFile[i][j].addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        openPDFWithOptions(filePath,fileName);
+                    }
+                });
+
+                JPanel listRow = new JPanel();
+                listRow.setBackground(Color.white);
+                listRow.setLayout(new BorderLayout());
+                listRow.setPreferredSize(new Dimension(800, 20));
+
+                JTextField category = new JTextField(fileElements[0]);
+                category.setEditable(false);
+                category.setBorder(new EmptyBorder(5,0,0,0));
+                category.setBackground(Color.white);
+                JTextField parent = new JTextField(fileElements[1]);
+                parent.setBorder(new EmptyBorder(5,0,0,0));
+                parent.setBackground(Color.white);
+                parent.setEditable(false);
+
+                listRow.add(parent,BorderLayout.WEST);
+                listRow.add(categoryFile[i][j],BorderLayout.CENTER);
+                listRow.add(category,BorderLayout.EAST);
+
+                categoryLists[i].add(listRow,BorderLayout.CENTER);
+            }
+
+        }
+
+        JPanel list = new JPanel(); //Create panel to hold buttons
+        list.setLayout(new GridLayout(settings.getMenu().length,3));
+
+        //Create menu
+        for(int i = 0; i < settings.getMenu().length; i++){ //For every option, create a button
+            final JPanel tempPanel = categoryLists[i];
+            menuOption[i]= new JButton(settings.getMenu()[i]);
+            menuOption[i].setPreferredSize(new Dimension(imageLabel.getIconWidth(),40)); //Sets preferred size provided there is enough room.
+            menuOption[i].setBackground(Color.black); //Set button color to black
+            menuOption[i].setForeground(Color.white); //Set text color to white
+            menuOption[i].setOpaque(true);
+            menuOption[i].setFocusable(false);
+            menuOption[i].setBorderPainted(false); //Gets rid of border separating buttons
+            menuOption[i].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if(e.getSource() instanceof JButton){
+                        mainTab.addTab(((JButton) e.getSource()).getText(),tempPanel);
+                        mainTab.setSelectedComponent(tempPanel); //Sets the selected panel to the recently added tab
+                    }
+                }
+            });
+            list.add(menuOption[i]); //Add to panel
+        }
+											</code>
+										</pre>
+									</p>	
+								</div>
+							</div>
+						</div>
+					</p>
+				</div>
+			</div><!--
+
+		 -->&nbsp
+			<button id="projectButton" class="projectButton">
+				Connect 4<br>
+				C++
+			</button>
+			<div id="modalProject" class="modal">
+				<div class="modalContent">
+					<p style="text-align: left;">
+						<strong>Project title: </strong><br> Connect 4<br><br>
+						<strong>Project status: </strong><br> Ongoing. Needs a few tweaks<br><br>
+						<strong>Project Description: </strong><br> Will display connect-4 gameboard and play against you.<br><br>
+						<strong>Languages: </strong><br> C++<br><br>
+						<strong>Software: </strong><br> Microsoft Visual Studio<br><br>
+						<strong>Demo: </strong><br>
+					</p>	
+					<p>	
+						<p class="center">
+							<a target="_blank" a href= "https://github.com/starSweeper/connect4">
+								<button class="iconButton">
+									<strong>GitHub</strong><br>
+									<i class="fa fa-github" style="font-size:40px";></i>
+								</button>
+							</a><br>
+						</p><br>
+						<div class="buttonGroup">
+							<button class="picLaunch" style="background:url('Gameboard.png')">
+							</button>
+							<div class="pModal">
+								<div class="modalPhoto">
+									<p>
+										<img src="Gameboard.png" style="width:100%;">
+									</p>	
+								</div>
+							</div>
+							<button class="picLaunch" style="background:url('GameboardWon.png')">
+							</button>
+							<div class="pModal">
+								<div class="modalPhoto">
+									<p>
+										<img src="GameboardWon.png" style="width:100%;">
+									</p>	
+								</div>
+							</div>
+							<button class="picLaunch" style="background:url('GameboardLost.png')">
+							</button><br>
+							<div class="pModal">
+								<div class="modalPhoto">
+									<p>
+										<img src="GameboardLost.png" style="width:100%;">
+									</p>	
+								</div>
+							</div>
+							<button class="docLaunch docButton">
+								<i class="fa fa-file-code-o" style="font-size:40px";></i><br><br>
+								<strong>Code snippet</strong>
+							</button>
+							<div class="dModal">
+								<div class="modalDocument">
+									<p>
+										<pre>
+											<code>
+//Checks to see if there are any nessesary moves to make (seize the win, or prevent it)
+int prediction(char gameBoard[6][7], int length, int safeMoves[], int safeCount) {
+	char testingBoard[6][7];
+
+	for (int i = 0; i < 6; i++) {
+		for (int j = 0; j < 7; j++) {
+			testingBoard[i][j] = gameBoard[i][j];
+		}
+	}
+
+	int testPossR[7];
+	int testPossC[7];
+
+	int testPossCount = getPossibleMoves(testingBoard, testPossC, testPossR);
+	bool didTheyWin = false;
+	bool safe = true;
+
+	//Run computer simulation
+	for (int k = 0; k < testPossCount; k++) {
+		//Copy over the board
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 7; j++) {
+				testingBoard[i][j] = gameBoard[i][j];
+			}
+		}
+		if (length == 4) {
+			//Play theoretical piece.
+			playAutoPiece(testPossC[k], testingBoard, 'O');
+			//Check for winner
+			didTheyWin = checkForWinner(testingBoard, 'O', length);
+		}
+		else {
+			safe = searchFor(safeMoves, safeCount, testPossC[k]);
+			//Play theoretical piece.
+			playAutoPiece(testPossC[k], testingBoard, 'X');
+			//Check for winner
+			didTheyWin = checkForDanger(gameBoard, testingBoard, 'X', length);
+		}
+
+		//If there is a winner, return the winning column
+		if (didTheyWin && safe) {
+			return testPossC[k];
+		}
+	}
+
+	//Run player simulation
+	for (int h = 0; h < testPossCount; h++) {
+		//Copy over the board
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 7; j++) {
+				testingBoard[i][j] = gameBoard[i][j];
+			}
+		}
+		
+		if (length == 4) {
+			//Play theoretical piece.
+			playAutoPiece(testPossC[h], testingBoard, 'X');
+			//Check for winner
+			didTheyWin = checkForWinner(testingBoard, 'X', length);
+		}
+		else {
+			safe = searchFor(safeMoves, safeCount, testPossC[h]);
+			//Play theoretical piece.
+			playAutoPiece(testPossC[h], testingBoard, 'O');
+			//Check for winner
+			didTheyWin = checkForDanger(gameBoard, testingBoard, 'O', length);
+		}
+
+
+		if (didTheyWin && safe) {
+			return testPossC[h];
+		}
+	}
+	
+	return -8;
+}
+											</code>
+										</pre>
+									</p>	
+								</div>
+							</div>
+						</p>
+					</div>
+				</div>
+			</div><!--
+
+		--><button id="projectButton" class="projectButton">
+				Fox Sprite <br>
+				Unity 3D
+			</button>
+			<div id="modalProject" class="modal">
+				<div class="modalContent">
+					<p style="text-align: left;">
+						<strong>Project title: </strong><br> Vixen Sprite<br><br>
+						<strong>Project status: </strong><br> Just starting.<br><br>
+						<strong>Project Description: </strong><br> Animated sprite of a fox. Main character in a game I am working on. Clearly I am no artist, but the clumsy appearance suits the syle of game I am developing.<br><br>
+						<strong>Languages: </strong><br> C#<br><br>
+						<strong>Software: </strong><br> Unity 3D, GIMP, Microsoft Visual Studio<br><br>
+						<strong>Demo: </strong><br> Coming soon!! Take a look at some screenshots and code snippets in the meantime :)<br><br>
+					</p>	
+					<p>	
+						<div class="buttonGroup">
+							<button class="picLaunch" style="background:url('VixenSprite.png')">
+							</button>
+							<div class="pModal">
+								<div class="modalPhoto">
+									<p>
+										<img src="VixenSprite.png" style="width:100%;"><br>
+										<strong>Sprite sheet for Vixen</strong>
+									</p>	
+								</div>
+							</div>
+							<button class="picLaunch" style="background:url('Vixen.png')">
+							</button>
+								<div class="pModal">
+									<div class="modalPhoto">
+										<p>
+											<img src="Vixen.png" style="width:100%;"><br>
+										<strong>Vixen, once re-assembled</strong>
+										</p>	
+									</div>
+								</div>
+							<button class="picLaunch" style="background:url('VixenTest.png')">
+							</button>
+							<div class="pModal">
+								<div class="modalPhoto">
+									<p>
+										<img src="VixenTest.png" style="width:100%;"><br>
+										<strong>Testing gameplay with Vixen as character</strong>
+									</p>	
+								</div>
+							</div>
+						</div>
+					</p>
+				</div>
+			</div><!--
+
+		 -->&nbsp
+			<button id="projectButton" class="projectButton">
+				Single Source Shortest Path<br>
+				C++
+			</button>
+			<div id="modalProject" class="modal">
+				<div class="modalContent">
+					<p style="text-align: left;">
+						<strong>Project title: </strong><br> Single Source Shortest Path<br><br>
+						<strong>Project status: </strong><br> Completed<br><br>
+						<strong>Project Description: </strong><br> Implements the Bellman-Ford algorithm to find the shortest path between two nodes on a graph. Assignment for Algorithms Analysis course.<br><br>
+						<strong>Languages: </strong><br> C++<br><br>
+						<strong>Software: </strong><br> Microsoft Visual Studio<br><br>
+						<strong>Demo: </strong><br>
+						<p class="center">
+							<a target="_blank" a href= "https://github.com/starSweeper/SingleSourceShortestPath">
+								<button class="iconButton">
+									<strong>GitHub</strong><br>
+									<i class="fa fa-github" style="font-size:40px";></i>
+								</button>
+							</a><br>
+						</p>
+					</p>
+					<p>		
+						<div class="buttonGroup">
+							<button class="picLaunch" style="background:url('SSSPResults.png')">
+							</button>
+							<div class="pModal">
+								<div class="modalPhoto">
+									<p>
+										<img src="SSSPResults.png" style="width:100%;">
+									</p>	
+								</div>
+							</div>
+							<button class="picLaunch" style="background:url('SSSPGraph.png')">
+							</button>
+							<div class="pModal">
+								<div class="modalPhoto">
+									<p>
+										<img src="SSSPGraph.png" style="width:100%;">
+									</p>	
+								</div>
+							</div>
+							<button class="docLaunch docButton">
+								<i class="fa fa-file-code-o" style="font-size:40px";></i><br><br>
+								<strong>Code snippet</strong>
+							</button>
+							<div class="dModal">
+								<div class="modalDocument">
+									<p>
+										<pre>
+											<code>
+/*
+Single Source Shortest Path program
+
+Based of Bellman-Ford, Initialize-Single-Source, and Relax pseudo code in text book.
+*/
+
+#include<iostream>
+#include<fstream>
+#include<string>
+#include"Vertex.h"
+
+using namespace std;
+
+const int TOINFINITYANDBEYOND = 9999; //"Infinity" for our purposes
+
+int processFile(string, int[][50], Vertex[]); //Opens the file, gets graph information and closes the file
+bool bellmanFord(int[][50], Vertex&,  Vertex[], int);
+void initializeSingleSource(int[][50], Vertex&, Vertex[], int);
+void relax(Vertex&, Vertex&, int);
+void printResults(Vertex, Vertex, Vertex[], int);
+void getPath(Vertex, Vertex);
+
+int main(int argc, char *argv[]) {
+	int graph[50][50];
+	int vertexCount = 0;
+	Vertex vertexList[50];
+	Vertex source, destination;
+	source.setVertexCharacter(*argv[2]);
+	destination.setVertexCharacter(*argv[3]);
+
+	vertexCount = processFile(argv[1], graph, vertexList);
+	bool results = bellmanFord(graph, source, vertexList, vertexCount);
+	printResults(source, destination, vertexList, vertexCount);
+}
+
+int processFile(string filePath, int graph[][50], Vertex vertexList[]) {
+	ifstream inputFile;
+	int vertexCount = 1;
+	char temp;
+
+	inputFile.open(filePath);
+
+	inputFile >> temp; //Read in the a
+	vertexList[0].setVertexCharacter(temp);
+	inputFile >> temp;
+	while (temp != 'a') {
+		vertexList[vertexCount].setVertexCharacter(temp);
+		vertexCount++;
+		inputFile >> temp;
+	}
+
+	for (int i = 0; i < vertexCount; i++) {
+		for (int j = 0; j < vertexCount; j++) {
+			inputFile >> graph[i][j];
+		}
+		inputFile >> temp;
+	}
+
+	inputFile.close();
+
+	return vertexCount;
+}
+
+bool bellmanFord(int graph[][50], Vertex &source, Vertex vertexList[], int size) {
+	//INITIALIZE-SINGLE-SOURCE(G,S)
+	initializeSingleSource(graph, source, vertexList, size);
+	
+	//for i = 1 to |G.V| - 1
+	for (int i = 1; i < size - 1; i++) {
+		//for each edge(u,v) that is an element in the graph
+		for (int j = 0; j < size; j++) {
+			for (int k = 0; k < size; k++) {
+				if (graph[j][k] != -1) {
+					//RELAX(u,v,w)
+					relax(vertexList[j], vertexList[k], graph[j][k]);
+				}
+			}
+		}
+	}
+	
+	//For each edge (u,v) that is an element in the graph
+	for (int i = 0; i < size; i++) {
+		for (int j = 0; j < size; j++) {
+			if (graph[i][j] != -1) {
+				//if v.d > u.d + w(u,v)
+				if (vertexList[j].getUpperBoundOnTheWeightOfTheShortestPathFromSourcesTov() > (vertexList[i].getUpperBoundOnTheWeightOfTheShortestPathFromSourcesTov() + graph[i][j])) {
+					//return FALSE
+					return false;
+				}
+			}
+		}
+	} 
+
+	//Return TRUE
+	return true;
+}
+
+void initializeSingleSource(int graph[][50], Vertex &source, Vertex vertexList[], int size) {
+	Vertex *pointerToNull = NULL;
+	
+	//For each vertex v that is an element in the graph
+	for (int i = 0; i < size; i++) {
+		if (vertexList[i].getVertexCharacter() == source.getVertexCharacter()) {
+			vertexList[i].setUpperBoundOnTheWeightOfTheShortestPathFromSourcesTov(0);
+			vertexList[i].bakePie(pointerToNull);
+			source = vertexList[i];
+		}
+		else {
+			//v.d = infinity
+			vertexList[i].setUpperBoundOnTheWeightOfTheShortestPathFromSourcesTov(TOINFINITYANDBEYOND);
+			//v.pi = NIL
+			vertexList[i].bakePie(pointerToNull);
+		}	
+	}
+}
+
+void relax(Vertex &edgeVertex1, Vertex &edgeVertex2, int weight) {
+	//if v.d > u.d + w(u,v)
+	if (edgeVertex2.getUpperBoundOnTheWeightOfTheShortestPathFromSourcesTov() > (edgeVertex1.getUpperBoundOnTheWeightOfTheShortestPathFromSourcesTov() + weight)) {
+		//v.d = u.d + w(u,v)
+		edgeVertex2.setUpperBoundOnTheWeightOfTheShortestPathFromSourcesTov((edgeVertex1.getUpperBoundOnTheWeightOfTheShortestPathFromSourcesTov() + weight));
+		//v.pi = u
+		edgeVertex2.bakePie(&edgeVertex1);
+	}
+}
+
+void printResults(Vertex source, Vertex destinationVertex, Vertex vertexList[], int size) {
+
+		for (int i = 0; i < size; i++) {
+			if (vertexList[i].getVertexCharacter() == destinationVertex.getVertexCharacter()) {
+				destinationVertex = vertexList[i];
+			}
+		}
+
+		char shortestPathBetweenSourceAndDestination[50];
+		int pathLength = destinationVertex.path.getAllElements(shortestPathBetweenSourceAndDestination);
+
+		cout << "From " << source.getVertexCharacter() << " to " << destinationVertex.getVertexCharacter() << ": ";
+		cout << destinationVertex.getUpperBoundOnTheWeightOfTheShortestPathFromSourcesTov() << endl;
+
+		getPath(destinationVertex, source);
+}
+
+void getPath(Vertex pathNode, Vertex source) {
+	Vertex nextNode = pathNode;
+
+	do {
+		pathNode.path.addToHead(nextNode.getVertexCharacter());
+		nextNode = *nextNode.eatPie();
+
+	} while (nextNode.eatPie() != source.eatPie());
+	pathNode.path.addToHead(nextNode.getVertexCharacter());
+
+	char allNodes[50];
+	int numOfNodes = pathNode.path.getAllElements(allNodes);
+
+	cout << "Shortest path: (";
+	for (int i = numOfNodes - 1; i > 0; i--) {
+		cout << pathNode.path.getElement(i) << " -> ";
+	}
+	cout << pathNode.path.getElement(0) << ")" << endl;
+}
+											</code>
+										</pre>
+									</p>
+								</div>
+							</div>	
+						</p>
+					</div>
+				</div>
+			</div><!--
+
+		--><button id="projectButton" class="projectButton">
+				911 Operator Interface<br>
+				Java
+			</button>
+			<div id="modalProject" class="modal">
+				<div class="modalContent">
+					<p style="text-align: left;">
+						<strong>Project title: </strong><br> 911 Operator Interface<br><br>
+						<strong>Project status: </strong><br> Completed<br><br>
+						<strong>Project Description: </strong><br> 911 call simulation. Assignment for Event Driven Programming course<br><br>
+						<strong>Languages: </strong><br> Java<br><br>
+						<strong>Software: </strong><br> IntelliJ IDEA<br><br>
+						<strong>Demo: </strong><br>
+						Coming soon!! Take a look at some screenshots and code snippets in the meantime :)<br><br>
+					</p>	
+					<p>	
+						<div class="buttonGroup">
+							<button class="picLaunch" style="background:url('911MainMenu.png')">
+							</button>
+							<div class="pModal">
+								<div class="modalPhoto">
+									<p>
+										<img src="911MainMenu.png" style="width:100%;">
+									</p>	
+								</div>
+							</div>
+							<button class="picLaunch" style="background:url('911CallLog.png')">
+							</button><br>
+							<div class="pModal">
+								<div class="modalPhoto">
+									<p>
+										<img src="911CallLog.png" style="width:100%;">
+									</p>	
+								</div>
+							</div>
+							<button class="docLaunch docButton">
+								<i class="fa fa-file-code-o" style="font-size:40px";></i><br><br>
+								<strong>Code snippet</strong>
+							</button>
+							<div class="dModal">
+								<div class="modalDocument">
+									<p>
+										<pre>
+											<code>
+/*
+ * Class to parse out all the information we don't want from TimeDateZone objects.
+ */
+ 
+public class TimeMachine {
+
+    private String currentTime;
+    private String currentDate;
+
+    public TimeMachine(String wholeThing) {
+        //We start out with something like 2016-09-28T17:38:38.990-06:00[US/Mountain]
+
+        String[] whatTimeIsIt = wholeThing.split("[%[-T:.%]]");
+
+        String[] timeZoneTemp = wholeThing.split("\\[");
+        String timeZone = timeZoneTemp[1].substring(0, timeZoneTemp[1].length() - 1);
+
+        String year = whatTimeIsIt[0];
+        String month = setMonth(whatTimeIsIt[1]);
+        String day = whatTimeIsIt[2];
+        String hour = setHour(whatTimeIsIt[3]);
+        String minute = whatTimeIsIt[4];
+        String second = setAmPm(whatTimeIsIt[5],whatTimeIsIt[3]);
+
+        for(int i = 0; i < whatTimeIsIt.length; i++)
+        {
+            System.out.printf(" ",whatTimeIsIt[i]);
+        }
+
+        currentTime = (hour + ":" + minute + ":" + second + "(" + timeZone + ")");
+        currentDate = (month + " " + day + ", " + year);
+    }
+
+    public String getTime(){return this.currentTime;}
+    public String getDate(){return this.currentDate;}
+
+    private String setAmPm(String whatSecond, String hourAsString){
+        int hourAsInt = Integer.parseInt(hourAsString);
+        if (hourAsInt >= 12)
+        {
+            return (whatSecond + " (PM)");
+        }
+        else
+        {
+            return whatSecond + " (AM)";
+        }
+    }
+
+    private String setHour(String whatHour){
+        int containsHour = Integer.parseInt(whatHour);
+        if(containsHour > 12){
+            int newHour = (containsHour - 12);
+            whatHour = Integer.toString(newHour);
+            return whatHour;
+        }
+        else{
+            return whatHour;
+        }
+    }
+
+    private String setMonth(String whatMonth){
+        String ourMonth = null;
+
+        switch (whatMonth){
+            case "01":
+                ourMonth = "January";
+                break;
+            case "02":
+                ourMonth = "February";
+                break;
+            case "03":
+                ourMonth = "March";
+                break;
+            case "04":
+                ourMonth = "April";
+                break;
+            case "05":
+                ourMonth = "May";
+                break;
+            case "06":
+                ourMonth = "June";
+                break;
+            case "07":
+                ourMonth = "July";
+                break;
+            case "08":
+                ourMonth = "August";
+                break;
+            case "09":
+                ourMonth = "September";
+                break;
+            case "10":
+                ourMonth = "October";
+                break;
+            case "11":
+                ourMonth = "November";
+                break;
+            case "12":
+                ourMonth = "December:";
+                break;
+
+        }
+
+        return ourMonth;
+    }
+
+}
+
+											</code>
+										</pre>
+									</p>	
+								</div>
+							</div>
+							<button class="docLaunch docButton">
+								<i class="fa fa-file-code-o" style="font-size:40px";></i><br><br>
+								<strong>Code snippet</strong>
+							</button>
+							<div class="dModal">
+								<div class="modalDocument">
+									<p>
+										<pre>
+											<code>
+    //Method to allow user to test program
+    private static void testItMyself(String name, String Ttime, String Tdate) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.printf("At any time you can enter these key phrases followed by text to add a new comment, dispatch new units, or update the status...%n");
+        System.out.printf("**REMEMBER TO ENTER EACH KEY PHRASE EXACTLY AS IT IS LISTED BELOW FOLLOWED BY YOUR COMMENT/NEW UNIT REQUEST/STATUS UPDATE**%n"); //Don't be entering these things lowercase or something. Peoples lives are at stake! I'm not doing input validation for this (sort of) because it would be inefficient in the real world.
+        System.out.printf("\"NEW COMMENT::\"   (Enter a new comment)%n");
+        System.out.printf("\"NEW UNITS::\"     (Dispatch new units)%n");
+        System.out.printf("\"NEW STATUS::\"    (Update the status of units called)%n");
+
+        //Exception handling
+       boolean goodInput = false;
+       String whichOne = null;
+
+        while(!goodInput) {
+            System.out.printf("%nPlease enter a '1' for WIRELESS%nPlease enter a '2' for ENHANCED%nYour selection: ");
+                whichOne = input.nextLine();
+                if("1".equals(whichOne) || "2".equals(whichOne) || "3".equals(whichOne) || "4".equals(whichOne)) {
+                    goodInput = true;
+                }
+                else
+                {
+                    System.out.printf("Invalid input. Please try again.%n");
+                    goodInput = false;
+                    input.next();
+                }
+        }
+
+        switch(whichOne) {
+            case "1":
+               newCall[count] = new Wireless();
+               Wireless newCallW = (Wireless) newCall[count];
+                String wLat = commentMaker("%nPlease enter the latitude of the emergency: ", newCall[count]);
+                String wLon = commentMaker("Please enter the longitude of the emergency: ", newCall[count]);
+
+               newCallW.setAddress(wLat, wLon);
+                break;
+            case "2":
+              newCall[count] = new Enhanced();
+              Enhanced newCallE = (Enhanced) newCall[count];
+                String eAddress = commentMaker("Please enter the address of the emergency: ",newCall[count]);
+               newCallE.setAddress(eAddress);
+                break;
+        }
+
+        String phone = commentMaker("Please enter a valid contact number in the format 000-000-000: ",newCall[count]);
+
+        boolean worthMyTime = true;
+        String whatIsYourEmergency = commentMaker("Please summarize the situation: ",newCall[count]);
+
+        String uhOh = commentMaker("Was this call made accidentally? Enter '1' for yes or anything else for no ",newCall[count]);
+        if ("1".equals(uhOh)) {
+            worthMyTime = false;
+        }
+        String myBad = commentMaker("Is the nature of this call a true emergency? Enter '1' for yes or anything else for no: ",newCall[count]);
+        if ("1".equals(myBad)) {
+            worthMyTime = true;
+        }
+
+        String agency = commentMaker("Which agency would you like to contact? %n Enter \"POLICE\", \"Fire\" or \"AMBULANCE\" or \"NON EMERGENCY\": ",newCall[count]);
+
+
+        newCall[count].setThings(name,Ttime,Tdate,1,phone,whatIsYourEmergency,worthMyTime,agency);
+
+        count++;
+        callSimulator(name);
+    }
+											</code>
+										</pre>
+									</p>	
+								</div>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div><!--
+
+		 -->&nbsp
+			<button id="projectButton" class="projectButton">
+				Connected Components<br>
+				C++
+			</button>
+			<div id="modalProject" class="modal">
+				<div class="modalContent">
+					<p style="text-align: left;">
+						<strong>Project title: </strong><br> Connected Components<br><br>
+						<strong>Project status: </strong><br> Completed<br><br>
+						<strong>Project Description: </strong><br>  Implements Kruskal's algorithm to find the connected nodes a graph. Assignment for Algorithms Analysis course.<br><br>
+						<strong>Languages: </strong><br> C++<br><br>
+						<strong>Software: </strong><br> Microsoft Visual Studio<br><br>
+						<strong>Demo: </strong><br> 
+						<p class="center">
+							<a target="_blank" a href= "https://github.com/starSweeper/Connected-Components">
+								<button class="iconButton">
+									<strong>GitHub</strong><br>
+									<i class="fa fa-github" style="font-size:40px";></i>
+								</button>
+							</a>
+						</p>
+					</p>
+					<p>
+						<div class="buttonGroup">
+							<button class="picLaunch" style="background:url('ConnectedComponentsDisconnect.png')">
+							</button>
+							<div class="pModal">
+								<div class="modalPhoto">
+									<p>
+										<img src="ConnectedComponentsDisconnect.png" style="width:100%;">
+									</p>	
+								</div>
+							</div>
+							<button class="picLaunch" style="background:url('ConnectedComponentsGraph.png')">
+							</button>
+							<div class="pModal">
+								<div class="modalPhoto">
+									<p>
+										<img src="ConnectedComponentsGraph.png" style="width:100%;">
+									</p>	
+								</div>
+							</div>
+							<button class="docLaunch docButton">
+								<i class="fa fa-file-code-o" style="font-size:40px";></i><br><br>
+								<strong>Code snippet</strong>
+							</button>
+							<div class="dModal">
+								<div class="modalDocument">
+									<p>
+										<pre>
+											<code>
+/*
+	Program that finds sets of connected components.
+	
+	Based of MST-Kruskal pseudo code, and connected-compnents pseudo code in text book.
+	Using linked-list created for a diffrent assignment, and edited to fit this program.
+*/
+
+
+#include<iostream>
+#include<fstream>
+#include<string>
+#include"SLL.h"
+
+using namespace std;
+
+int processFile(string, int[][50], char[]); //Opens the file, gets graph information and closes the file
+int kruskal(int[][50], int, char[], SLList[]); //Finds connected components
+SLList makeSet(char); //Creates a set with 1 element
+bool findSet(SLList,SLList); //Sees if one set is apart of another set
+SLList setUnion(SLList, SLList); //Joins two sets in holy matramony
+void bouncer(SLList[], SLList, int&); //Checks to see if a set is worthy of joining the list of connected components
+void printArray(SLList[], int); //Prints the list of connected components
+
+
+int main(int argc, char *argv[]) {
+	int graph[50][50];
+	int vertexCount = 0;
+	char vertexList[50];
+	SLList connectedComponents[50];
+
+	vertexCount = processFile(argv[1], graph, vertexList);
+	int connectedCount = kruskal(graph, vertexCount, vertexList, connectedComponents);
+	printArray(connectedComponents, connectedCount);
+
+}
+
+int processFile(string filePath, int graph[][50], char vertexList[]) {
+	ifstream inputFile;
+	int vertexCount = 1;
+	char temp;
+
+	inputFile.open(filePath);
+
+	inputFile >> temp; //Read in the a
+	vertexList[0] = temp;
+	inputFile >> temp;
+	while(temp != 'a') {
+		vertexList[vertexCount] = temp;
+		vertexCount++;
+		inputFile >> temp;
+	}
+
+	for (int i = 0; i < vertexCount; i++) {
+		for (int j = 0; j < vertexCount; j++) {
+			inputFile >> graph[i][j];
+		}
+		inputFile >> temp;
+	}
+
+	inputFile.close();
+
+	return vertexCount;
+}
+
+int kruskal(int graph[][50], int vertexCount, char vertexList[], SLList edges[]) {
+	SLList verticies[50];
+	int edgesCount = 0;
+
+	//For each vertex in the graph
+	for (int i = 0; i < vertexCount; i++) {
+		verticies[i] = makeSet(vertexList[i]);
+	}
+	
+	for (int i = 0; i < vertexCount; i++) {
+		for (int j = 0; j < vertexCount; j++) {
+			//Find the edges
+			if (graph[i][j] != -1) {
+				if (!findSet(verticies[i],verticies[j])){
+					verticies[i] = setUnion(verticies[i], verticies[j]);
+					bouncer(edges, verticies[i], edgesCount); //Will add the set if it ought to be added. Will also update the edgesCount
+				}
+			}
+		}
+	}
+
+	return edgesCount;
+}
+
+SLList makeSet(char element) {
+	SLList newList;
+	newList.sortedAdd(element);
+
+	return newList;
+}
+
+bool findSet(SLList set1, SLList set2) {
+	char tempSet[50]; //Only needed to satisfy parameter list for isInList
+
+	for (int i = 0; i < set2.getAllElements(tempSet); i++) {
+		if (set1.isInList(set2.getElement(i)) == false) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
+SLList setUnion(SLList set1, SLList set2) {
+
+	set1.addSet(&set2);
+
+	return set1;
+}
+
+//Checks if a set should be added to the list or not
+void bouncer(SLList list[], SLList set, int &count) {
+
+	//Check to see if set is already in the list
+	bool inList = false;
+	for (int i = 0; i < count; i++) {
+		if (findSet(list[i], set)) {
+			inList = true;
+		}
+	}
+
+	//Check to see if any of the list items are within the set
+	if (!inList) {
+		bool aListItemIsWithinSet = false;
+		int theListItemWithinSet;
+		for (int i = 0; i < count; i++) {
+			if (findSet(set, list[i])) {
+				aListItemIsWithinSet = true;
+				theListItemWithinSet = i;
+			}
+		}
+		if (aListItemIsWithinSet) {
+			list[theListItemWithinSet] = set; //Replace the list item with the new set
+		}
+		else {
+			list[count] = set;
+			count++;
+		}	
+	}
+}
+
+void printArray(SLList toPrint[], int size) {
+	int length;
+	char elements[50];
+
+	cout << size << " connected component(s) found:\n\n";
+	for (int i = 0; i < size; i++) {
+		length = toPrint[i].getAllElements(elements);
+		cout << i + 1 << ": [";
+		for (int j = 0; j < length - 1; j++) {
+			cout << elements[j] << ", ";
+		}
+		cout << elements[length - 1] << "]" << endl;
+	}
+
+	cout << endl;
+	system("pause");
+}
+
+											</code>
+										</pre>
+									</p>	
+								</div>
+							</div>
+						</div>
+					</p>
+				</div>
+			</div><!--
+
+-->
+			<button id="projectButton" class="projectButton">
+				HackerRank Icon<br>
+				Vector Image
+			</button>
+			<div id="modalProject" class="modal">
+				<div class="modalContent">
+					<p style="text-align: left;">
+						<strong>Project title: </strong><br> HackerRank Icon<br><br>
+						<strong>Project status: </strong> Completed, but eagerly awaiting actual font-awesome Icon!<br><br>
+						<strong>Project Description: </strong><br> A svg based icon of the HackerRank logo. I needed this icon for a button to link to my HackerRank page, but there is not yet one avaliable through font-awesome. So I made my own. It will do. For now. <br><br>
+						<strong>Languages: </strong><br> N/A<br><br>
+						<strong>Software: </strong><br> GIMP, IcoMoon.com, Online-Convert.com, Vectr.com <br><br>
+						<strong>Demo: </strong><br> 
+						Here is the icon on a working button.
+						<br><br>
+					</p>
+					<p>
+						<p class="center">
+							<a target="_blank" a href= "https://www.hackerrank.com">
+								<button class="iconButton">
+								<strong>HackerRank</strong><br>
+								<span class="icon-HackerRankIcon" style="font-size:60px"></span>
+								</button>
+							</a>
+						</p><!--
+					 --><div class="buttonGroup">
+							<button class="picLaunch" style="background:url('hackerRank.png')">
+							</button>
+							<div class="pModal">
+								<div class="modalPhoto">
+									<p>
+										<img src="hackerRank.png" style="width:100%;"><br>
+										<strong>Original vs. Custom Icon (poor resolution)</strong>
+									</p>	
+								</div>
+							</div>
+						</div>
+					</p>
+				</div>
+			</div><!--
+
+-->
+			&nbsp
+			<button id="projectButton" class="projectButton">
+				Flight Reservation Simulator<br>
+				C++
+			</button>
+			<div id="modalProject" class="modal">
+				<div class="modalContent">
+					<p style="text-align: left;">
+						<strong>Project title: </strong></br>Flight Reservation Simulator<br><br>
+						<strong>Project status: </strong></br> Completed<br><br>
+						<strong>Project Description: </strong></br>A flight reservation simulator implementing singularly linked lists. Assignment for Data Structures course<br><br>
+						<strong>Languages: </strong></br> C++<br><br>
+						<strong>Software: </strong></br> Microsoft Visual Studio<br><br>
+						<strong>Demo: </strong><br>
+					</p>
+					<p>		
+						<p class="center">
+							<a target="_blank" a href= "https://github.com/starSweeper/FlightReservation">
+								<button class="iconButton">
+									<strong>GitHub</strong><br>
+									<i class="fa fa-github" style="font-size:40px";></i>
+								</button>
+							</a>
+						</p>
+						<div class="buttonGroup">	
+							<button class="picLaunch" style="background:url('UllrAirlinesMain.png')">
+							</button>
+							<div class="pModal">
+								<div class="modalPhoto">
+									<p>
+										<img src="UllrAirlinesMain.png" style="width:100%;">
+									</p>	
+								</div>
+							</div>
+							<button class="picLaunch" style="background:url('UllrAirlinesReservation.png')">
+							</button>
+							<div class="pModal">
+								<div class="modalPhoto">
+									<p>
+										<img src="UllrAirlinesReservation.png" style="width:100%;">
+									</p>	
+								</div>
+							</div>
+							<button class="picLaunch" style="background:url('UllrAirlinesCheck.png')">
+							</button>
+							<div class="pModal">
+								<div class="modalPhoto">
+									<p>
+										<img src="UllrAirlinesCheck.png" style="width:100%;">
+									</p>	
+								</div>
+							</div>
+							<button class="picLaunch" style="background:url('UllrAirlinesDelete.png')">
+							</button>
+							<div class="pModal">
+								<div class="modalPhoto">
+									<p>
+										<img src="UllrAirlinesDelete.png" style="width:100%;">
+									</p>	
+								</div>
+							</div>
+							<button class="docLaunch docButton">
+								<i class="fa fa-file-code-o" style="font-size:40px";></i><br><br>
+								<strong>Code snippet</strong>
+							</button>
+							<div class="dModal">
+								<div class="modalDocument">
+									<p>
+										<pre>
+											<code>
+//Flight reservation program
+//October 2016
+
+#include<iostream>
+#include"DLList.h" //Include header file with link lists
+using namespace std;
+
+
+
+bool returnToMenu(); //Asks if user would like to return to menu
+bool searchFlight(DLList&, DLList&, DLList&, FlightList&); 
+bool reserveFlight(DLList&, DLList&, DLList&, FlightList&);
+bool cancelReservation(DLList&, DLList&, DLList&, FlightList&); //Delete reservation from linked list of passengers
+string whereTo(string, DLList&, DLList&, DLList&, FlightList&); //Checks for reservation and if it finds a flight, tells you where it is to.
+bool oneFlightManifest(DLList&, DLList&, DLList&, FlightList&); //See all passengers for a specific flight
+bool allFlightManifest(DLList&, DLList&, DLList&, FlightList&); //See all passengers for all flights
+int inputValidation(string, bool);
+void exitNow();
+
+int main()
+{
+	int menu;
+	bool again = false;
+	bool tryAgain = false;
+	//Passengers Pass;
+	DLList norway, alaska, mexico;
+	FlightList fly;
+
+	fly.addToHead(norway); //Create flight to Norway
+	fly.addToHead(alaska); //Create flight to Alaska
+	fly.addToHead(mexico); //Create flight to Mexio
+
+		//Main menu
+	do{
+		cout << "Welcome to Ullr Airlines!\n";
+		cout << "Please select an option below...\n\n";
+
+		cout << "Enter a '1' to Reserve Ticket(s)\n";
+		cout << "Enter a '2' to Cancel a Reservation\n";
+		cout << "Enter a '3' to Check Whether a Ticket is Reserved for a Particular Person\n";
+		cout << "Enter a '4' to Display a Manifest for a Specific Flight\n";
+		cout << "Enter a '5' to Display a Manifest for all Flights\n";
+		cout << "Enter a '6' to Exit\n\n";
+
+		do {
+			tryAgain = false;
+			menu = inputValidation("Your selection: ", false);
+
+
+			switch (menu) { //Calls functions user needs based on menu selection
+			case 1:
+				again = reserveFlight(norway, alaska, mexico, fly);
+				break;
+			case 2:
+				again = cancelReservation(norway, alaska, mexico, fly);
+				break;
+			case 3:
+				again = searchFlight(norway, alaska, mexico, fly);
+				break;
+			case 4:
+				again = oneFlightManifest(norway, alaska, mexico, fly);
+				break;
+			case 5:
+				again = allFlightManifest(norway, alaska, mexico, fly);
+				break;
+			case 6:
+				exitNow();
+				break;
+			default:
+				cout << "That wasn't an option. Try again.\n"; //More input validation
+				tryAgain = true;
+				break;
+			}
+		} while (tryAgain);
+	} while (again);
+
+	return 0;
+}
+
+//Asks user if they would like to return to main menu
+bool returnToMenu() {
+	int returnToMenu;
+	bool menuReturnTo = false;
+
+	returnToMenu = inputValidation("\nWould you like to return to the main menu? (Enter \'1\' for yes or \'2\' for no)\nYour selection: ",false);
+
+	if (returnToMenu == 1) {
+		menuReturnTo = true;
+		system("cls"); //Clear screen
+	}
+	else {
+		exitNow();
+	}
+
+	return menuReturnTo;
+}
+
+//Displays list of passengers for one specified flight
+bool oneFlightManifest(DLList& Flight2430, DLList& Flight2515, DLList& Flight2750, FlightList& myFlight) {
+	int flight;
+	bool badInput = false;
+
+	system("cls"); //Clear screen
+		cout << "SINGLE FLIGHT MANIFEST\n";
+		flight = inputValidation("Please enter flight number: ", true);
+		if (flight == 2430) { //Checking to see which flight they are on
+			Flight2430.printAll();
+		}
+		else if (flight == 2515) {
+			Flight2515.printAll();
+		}
+		else if (flight == 2750) {
+			Flight2750.printAll();
+		}
+		else {
+			cout << "That is not a valid flight number, please try again\n";
+			badInput = true;
+		}
+
+
+	return returnToMenu();
+}
+//Displays list of passengers for all flights (all 3 of them!)
+bool allFlightManifest(DLList& Flight2430, DLList& Flight2515, DLList& Flight2750, FlightList& myFlight) {
+	system("cls"); //Clear screen
+	cout << "ALL FLIGHT MANIFEST\n";
+	cout << "Flight 2430 to Oslo, Norway:\n";
+	Flight2430.printAll();
+	cout << "\n\nFlight 2525 to Ancorage, Alaska:\n";
+	Flight2515.printAll();
+	cout << "\n\nFlight 2750 to Accopulco, Mexico:\n";
+	Flight2750.printAll();
+	cout << endl;
+
+	return returnToMenu();
+}
+
+//Deletes passenger from flight list
+bool cancelReservation(DLList& Flight2430, DLList& Flight2515, DLList& Flight2750, FlightList& myFlight)
+{
+	string nameDelete;
+	system("cls");
+	cout << "FLIGHT CANCELLATION FORM\n";
+	cout << "**Please enter passenger name exactly as it was entered at reservation time**\n";
+	cout << "Passenger name: ";
+	//cin.ignore();
+	getline(cin, nameDelete);
+	string flightExists = whereTo(nameDelete, Flight2430, Flight2515, Flight2750, myFlight);
+
+	if (flightExists == "Norway") {
+		Flight2430.deleteNode(nameDelete);
+		cout << "Reservation has been deleted.\n";
+	}
+	else if (flightExists == "Alaska") {
+		Flight2515.deleteNode(nameDelete);
+		cout << "Reservation has been deleted.\n";
+	}
+	else if (flightExists == "Mexico") {
+		Flight2750.deleteNode(nameDelete);
+		cout << "Reservation has been deleted.\n";
+	}
+	else if (flightExists == "No") {
+		cout << "Feel free to make a reservation in our Main Menu.\n";
+	}
+
+
+	return returnToMenu();
+}
+
+//Searches for passenger 
+bool searchFlight(DLList& Flight2430, DLList& Flight2515, DLList& Flight2750, FlightList& myFlight)
+{
+
+	string fullName;
+
+	system("cls");
+	cout << "PASSENGER LOOK UP\n";
+	cout << "**Please enter passenger name exactly as it was entered at reservation time**\n";
+	cout << "Passenger name: ";
+	//cin.ignore();
+	getline(cin, fullName);
+	whereTo(fullName, Flight2430, Flight2515, Flight2750, myFlight);
+
+
+	return returnToMenu();
+}
+
+//searches for passenger and tells you what flight they are on
+string whereTo(string full, DLList& Flight2430, DLList& Flight2515, DLList& Flight2750, FlightList& myFlight) {
+	bool flyingToNorway;
+	bool flyingToAlaska;
+	bool flyingToMexico;
+
+	//Checking to see which flight they are on
+	flyingToNorway = Flight2430.isInList(full);
+	flyingToAlaska = Flight2515.isInList(full);
+	flyingToMexico = Flight2750.isInList(full);
+
+	if (flyingToNorway || flyingToAlaska || flyingToMexico) { //If they are on any flight...
+		cout << "\n\nIt looks like there is a passenger by that name.\n";
+		cout << "This passenger has a ticket reserved for ";
+		if (flyingToNorway) {
+			cout << "Flight 2430 to Oslo, Norway.\n";
+			return "Norway";
+		}
+		else if (flyingToAlaska) {
+			cout << "Flight 2515 to Ancorage, Alaska. \n";
+			return "Alaska";
+		}
+		else if (flyingToMexico) {
+			cout << "Flight 2750 to Accapulco, Mexico.\n";
+			return "Mexico";
+		}
+	}
+	else {
+		cout << "I'm sorry, it doesn't look like we have any reservations under that name.\n"; //Passenger was not found on any flight
+		return "No";
+	}
+
+}
+
+//Reserves flight(creates new node for list of passengers)
+bool reserveFlight(DLList& Flight2430, DLList& Flight2515, DLList& Flight2750, FlightList& myFlight)
+{
+	int numOfPassengers;
+	int flightNumber;
+
+	system("cls"); //Clear screen
+	cout << "We are so pleased that you have chosen Ullr Airlines for your next adventure!\n\n";
+	cout << "Here is a list of our avaliable flights:\n";
+	cout << "Flight 2430 to Olso, Norway\n";
+	cout << "Flight 2515 to Anchorage, Alaska, United States\n";
+	cout << "Flight 2750 to Accapulco, Mexico\n\n";
+	cout << "RESERVATION FORM\n";
+	numOfPassengers = inputValidation("Number of passengers: ", false);
+
+	string name;
+	bool badInput = false;
+
+	do {
+		for (int i = 0; i < numOfPassengers; i++)
+		{
+			cout << "\nPassenger " << i + 1 << ":\n";
+			cout << "Full Name (last name first): ";
+			getline(cin, name);
+			flightNumber = inputValidation("Flight Number: ", true);
+
+			if (flightNumber == 2430) {
+				Flight2430.sortedAdd(name); //Adding passenger to flight
+			}
+			else if (flightNumber == 2515) {
+				Flight2515.sortedAdd(name);
+			}
+			else if (flightNumber == 2750) {
+				Flight2750.sortedAdd(name);
+			}
+			else {
+				cout << flightNumber << " is not a valid flight number. Please try again.";
+				badInput = true;
+			}
+
+		}
+
+	} while (badInput); //While flight number entered is invalid
+
+
+	return returnToMenu();
+}
+
+//recieves input as a string, checks to see if it is valid, then converts it to an int
+int inputValidation(string prompt, bool flightNum) {
+	//conversion from string to int from http://stackoverflow.com/questions/7663709/convert-string-to-int-c
+	bool badInput;
+	string response;
+	int responseInt;
+
+	do {
+		badInput = false;
+		cout << prompt;
+		//cin.ignore();
+		getline(cin, response);
+
+		if (flightNum && (response != "2430" && response != "2515" && response != "2750")) {
+				cout << "Invalid input. Please try again!\n";
+				badInput = true;
+			}
+		else {
+			try {
+				responseInt = std::stoi(response);
+			}
+			catch (invalid_argument) {
+				cout << "Invalid input. Please try again!\n";
+				badInput = true;
+			}
+		}
+
+		
+
+	} while (badInput == true);
+
+	return responseInt;
+}
+
+//For a quick exit of the program
+void exitNow() {
+	system("cls");//clear screen
+	cout << "Thank you for choosing Ullr Arlines! Have a wonderful day!\n";
+	system("pause");
+	exit(0); //Close program
+}
+											</code>
+										</pre>
+									</p>	
+								</div>
+							</div>
+						</div>
+					</p>
+				</div>
+			</div>
+		</div>
+	
 		</div><!--
 		--><div class="seperate"></div><!--
 		--><div id="aboutmydog">
